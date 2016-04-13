@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>CustomizePizzaForm</title>
+</head>
+<body>
+<div>
+    <form action = "#" th:action="@{/orderPizza}" method ="post">
+        <select id="crustSize" name="crustSize" required="required">
+            <option value="" disabled="disabled" selected="selected">Crust Size</option>
+            <option th:each="crustSize : ${crustSizes}" th:text="${crustSize}" th:value="${crustSize}"></option>
+        </select>
+        <select id="crustType" name="crustType" required="required">
+            <option value="" disabled="disabled" selected="selected">Crust Type</option>
+            <option th:each="crustType : ${crustTypes}" th:text="${crustType}" th:value="${crustType}"></option>
+        </select>
+        <table border = "0" style ="display : inline;">
+            <th>Topping</th>
+            <th:block th:each="topping : ${toppings}">
+                <tr><td><input type="checkbox" name = "toppings" th:path="${topping}" th:value="${topping}" />
+                <label th:text = "${topping}"/></td></tr>
+            </th:block>
+        </table>
+        <div>
+        <input type="submit" value="Order Pizza"/>
+        </div>
+    </form>
+    <br/><br/>
+    <table border = "0">
+        <tr>
+            <td>Price</td>
+            <td th:text="${price}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
