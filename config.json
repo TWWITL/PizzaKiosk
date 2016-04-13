@@ -1,0 +1,48 @@
+{
+  "sizes": [
+    {
+      "slices": 10,
+      "desc": "LARGE",
+      "descURL": "",
+      "cost": 200
+    },
+    {
+      "slices": 6,
+      "desc": "MEDIUM",
+      "descURL": "",
+      "cost": 150
+    },
+    {
+      "slices": 4,
+      "desc": "SMALL",
+      "descURL": "",
+      "cost": 100
+    }
+  ],
+  "toppings": [
+    {
+      "desc": "PEPPERONI",
+      "veg": false,
+      "spicy": true,
+      "cost": 75.0
+    },
+    {
+      "desc": "PANEER",
+      "veg": true,
+      "spicy": false,
+      "cost": 50.0
+    },
+    {
+      "desc": "MIXED VEG",
+      "veg": true,
+      "spicy": true,
+      "cost": 60.0
+    },
+    {
+      "desc": "EXTRA CHEESE",
+      "veg": true,
+      "spicy": false,
+      "cost": 30.0
+    }
+  ]
+}
