@@ -13,13 +13,19 @@ class PizzaKiosk {
     private Pizza pizza;
     private Map<String, Size> sizeMap;
     private Map<String, Topping> toppingMap;
+    private static PizzaKiosk kiosk = new PizzaKiosk();
 
-    public PizzaKiosk() {
+    private PizzaKiosk() {
         DataSource dataSource = new DataSource();
 
         this.sizeMap = dataSource.getSizeMap();
         this.toppingMap = dataSource.getToppingMap();
     }
+
+    public static PizzaKiosk getInstance(){
+        return kiosk;
+    }
+
 
     double makePizzaWith(Crust crust, String size, List<String> toppingList) {
         pizza = new Pizza();

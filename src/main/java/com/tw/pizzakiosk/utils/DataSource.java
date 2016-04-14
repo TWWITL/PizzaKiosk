@@ -38,20 +38,13 @@ public class DataSource {
             e.printStackTrace();
         }
 
-        JsonNode sizes = rootNode.path("sizes");
-        Iterator<JsonNode> elements = sizes.elements();
+        loadSizes(objectMapper, rootNode);
+        loadToppings(objectMapper, rootNode);
+    }
+
+    private void loadToppings(ObjectMapper objectMapper, JsonNode rootNode) {
+        Iterator<JsonNode> elements;
         JsonNode obj;
-
-        while (elements.hasNext()) {
-            obj = elements.next();
-
-            try {
-                Size size = objectMapper.treeToValue(obj, Size.class);
-                this.sizeMap.put(size.getDesc(), size);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-        }
 
         JsonNode toppings = rootNode.path("toppings");
         elements = toppings.elements();
@@ -62,6 +55,23 @@ public class DataSource {
             try {
                 Topping topping = objectMapper.treeToValue(obj, Topping.class);
                 this.toppingMap.put(topping.getDesc(), topping);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadSizes(ObjectMapper objectMapper, JsonNode rootNode) {
+        JsonNode sizes = rootNode.path("sizes");
+        Iterator<JsonNode> elements = sizes.elements();
+        JsonNode obj;
+
+        while (elements.hasNext()) {
+            obj = elements.next();
+
+            try {
+                Size size = objectMapper.treeToValue(obj, Size.class);
+                this.sizeMap.put(size.getDesc(), size);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }

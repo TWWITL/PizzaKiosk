@@ -86,7 +86,7 @@ public class Main {
             }
         }
 
-        double cost = new PizzaKiosk().makePizzaWith(crust, size, toppings);
+        double cost = PizzaKiosk.getInstance().makePizzaWith(crust, size, toppings);
         System.out.println("Your Pizza costs: " + cost);
     }
 }
