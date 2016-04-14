@@ -15,7 +15,7 @@ public class PizzaKioskTest {
 
     @Before
     public void setUp() throws Exception {
-        kiosk = new PizzaKiosk();
+        kiosk = PizzaKiosk.getInstance();
     }
 
     @Test
